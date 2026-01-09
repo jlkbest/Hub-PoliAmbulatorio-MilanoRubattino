@@ -111,5 +111,33 @@ footer { text-align: center; font-size: 10px; color: var(--text-dim); margin: 60
     .grid { grid-template-columns: 1fr; }
     .highlight-list { column-count: 1; }
     .img-card { flex: 0 0 85%; }
+}
 
+/* Spaziatura e stile link PDF in Sidebar */
+.nav-pdf-section {
+    margin-top: 80px; /* Distanza dall'ultima voce del menu */
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.nav-pdf-title {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--text-dim);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.pdf-link {
+    display: flex !important;
+    align-items: center;
+    color: var(--text-main) !important;
+    font-size: 11px !important;
+    padding: 8px 0 !important;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.pdf-link:hover {
+    color: var(--accent-blue) !important;
 }

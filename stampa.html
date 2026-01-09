@@ -4,184 +4,72 @@
     <meta charset="UTF-8">
     <title>Scheda Tecnica - Piazza Vigili del Fuoco 11</title>
     <style>
-        :root { 
-            --blue: #1a73e8; 
-            --grey: #5f6368; 
-            --border: #dadce0; 
-            --light-bg: #f8f9fa;
-        }
-        body { 
-            font-family: 'Segoe UI', Arial, sans-serif; 
-            margin: 0; padding: 0; background: #fff; color: #202124;
-            line-height: 1.4; font-size: 13px;
-        }
-        
-        /* Layout A4 */
-        .page {
-            width: 210mm; margin: auto; padding: 15mm;
-            box-sizing: border-box; position: relative;
-        }
-
-        /* Pulsante Flottante Stampa/PDF */
-        .no-print-btn {
-            position: fixed;
-            top: 20px;
-            right: 40px;
-            background: var(--blue);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: bold;
-            z-index: 1000;
-            transition: all 0.2s;
-            text-transform: uppercase;
-            font-size: 12px;
-        }
-        .no-print-btn:hover { background: #1557b0; transform: translateY(-2px); }
-
-        header { 
-            display: flex; justify-content: space-between; align-items: flex-end;
-            border-bottom: 2px solid var(--blue); padding-bottom: 15px; margin-bottom: 25px; 
-        }
-        h1 { font-size: 24px; margin: 0; color: #000; }
-        .claim { font-size: 14px; color: var(--grey); margin-top: 5px; }
-
-        .section-title { 
-            font-size: 11px; text-transform: uppercase; color: var(--blue); 
-            font-weight: 700; margin: 25px 0 10px 0; letter-spacing: 1px;
-            border-bottom: 1px solid var(--border); padding-bottom: 5px;
-        }
-
-        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        
-        .feature-list { list-style: none; padding: 0; margin: 0; }
-        .feature-list li { margin-bottom: 6px; padding-left: 15px; position: relative; }
-        .feature-list li::before { content: "•"; color: var(--blue); position: absolute; left: 0; font-weight: bold; }
-
-        .transport-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 10px; }
-        .transport-item { background: var(--light-bg); padding: 12px; border-radius: 6px; text-align: center; border: 1px solid var(--border); }
+        :root { --blue: #1a73e8; --grey: #5f6368; --border: #dadce0; --light-bg: #f8f9fa; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: #fff; color: #202124; font-size: 13px; }
+        .page { width: 210mm; margin: auto; padding: 15mm; box-sizing: border-box; position: relative; }
+        .no-print-btn { position: fixed; top: 20px; right: 40px; background: var(--blue); color: white; border: none; padding: 12px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; z-index: 1000; display: flex; align-items: center; gap: 10px; }
+        header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--blue); padding-bottom: 15px; margin-bottom: 25px; }
+        h1 { font-size: 24px; margin: 0; }
+        .section-title { font-size: 11px; text-transform: uppercase; color: var(--blue); font-weight: 700; margin: 25px 0 10px 0; border-bottom: 1px solid var(--border); padding-bottom: 5px; }
+        .transport-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .transport-item { background: var(--light-bg); padding: 10px; border-radius: 6px; text-align: center; border: 1px solid var(--border); }
         .transport-item strong { display: block; color: var(--blue); font-size: 13px; }
-        .transport-item span { font-size: 11px; color: var(--grey); }
-
-        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 20px 0; }
-        .gallery img { width: 100%; height: 120px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border); }
-
-        .proposal-card { 
-            background: var(--light-bg); border: 1px solid var(--border); 
-            border-radius: 8px; padding: 20px; margin-top: 15px;
-        }
-        .opt { margin-bottom: 12px; }
-        .opt:last-child { margin-bottom: 0; }
-        .tag { font-weight: bold; color: var(--blue); display: inline-block; width: 120px; }
-
-        footer { 
-            margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);
-            display: flex; justify-content: space-between; align-items: center;
-        }
-
-        /* Gestione Stampa */
-        @media print {
-            .no-print-btn { display: none !important; }
-            .page { width: 100%; padding: 5mm; margin: 0; }
-            body { background: white; }
-            @page { size: A4; margin: 10mm; }
-        }
+        .proposal-card { background: var(--light-bg); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+        .opt { margin-bottom: 10px; border-bottom: 1px dashed #ccc; padding-bottom: 10px; }
+        .opt:last-child { border: none; }
+        .tag { font-weight: bold; color: var(--blue); width: 140px; display: inline-block; }
+        @media print { .no-print-btn { display: none !important; } .page { width: 100%; margin: 0; } }
     </style>
 </head>
 <body>
-
-    <button class="no-print-btn" onclick="window.print()">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
-            <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
-        </svg>
-        Stampa / Salva PDF
-    </button>
-
+    <button class="no-print-btn" onclick="window.print()">STAMPA SCHEDA / PDF</button>
     <div class="page">
         <header>
-            <div>
-                <img src="BR.gif" alt="Logo" style="height: 25px; margin-bottom: 10px;">
-                <h1>Piazza Vigili del Fuoco 11, Milano</h1>
-                <div class="claim">Asset Sanitario Strategico · Hub ~300 mq</div>
-            </div>
-            <div style="text-align: right; font-size: 10px; color: var(--grey);">
-                GENNAIO 2026<br>STRETTAMENTE RISERVATO
-            </div>
+            <div><h1>Piazza Vigili del Fuoco 11</h1><div style="color:var(--grey)">Asset Sanitario Strategico · ~300 mq</div></div>
+            <div style="text-align:right; font-size:10px;">GENNAIO 2026 · RISERVATO</div>
         </header>
 
-        <div class="section-title">01. Logistica e Collegamenti</div>
+        <div class="section-title">01. Logistica e Trasporti</div>
         <div class="transport-grid">
             <div class="transport-item">
                 <strong>MM2 Lambrate</strong>
-                <span>Linea Verde Diretta</span>
+                <span>Stazione FS / Metro Verde</span>
             </div>
             <div class="transport-item">
-                <strong>Stazione FS Lambrate</strong>
-                <span>Treni Regionali / FS</span>
+                <strong>Autobus 54</strong>
+                <span>Collegamento Duomo / Lambrate</span>
             </div>
             <div class="transport-item">
-                <strong>Bus 84 / 93</strong>
-                <span>150m (2 min a piedi)</span>
-            </div>
-        </div>
-        <p style="font-size: 11px; margin-top: 10px; color: var(--grey);">
-            * L'immobile è situato in un'ampia <strong>area pedonale</strong> che garantisce privacy assoluta per i pazienti e facilita le operazioni di soccorso/sanitarie.
-        </p>
-
-        <div class="section-title">02. Caratteristiche Asset (Sanitary-Ready)</div>
-        <div class="details-grid">
-            <div>
-                <ul class="feature-list">
-                    <li><strong>Capacità:</strong> Predisposto per 10 studi medici</li>
-                    <li><strong>Aria:</strong> VMC a norma sanitaria integrale</li>
-                    <li><strong>Cablaggio:</strong> 64+ punti rete dati certificati</li>
-                </ul>
-            </div>
-            <div>
-                <ul class="feature-list">
-                    <li><strong>Sicurezza:</strong> Locale blindato uso archivio/caveau</li>
-                    <li><strong>Energia:</strong> Pannelli solari autorizzati</li>
-                    <li><strong>Accessibilità:</strong> Piano terra (Zero barriere)</li>
-                </ul>
+                <strong>Autobus 954</strong>
+                <span>Linea di quartiere / Parcheggi</span>
             </div>
         </div>
 
-        <div class="gallery">
-            <img src="IMG/1.jpg" alt="Foto 1">
-            <img src="IMG/2.jpg" alt="Foto 2">
-            <img src="IMG/3.jpg" alt="Foto 3">
+        <div class="section-title">02. Caratteristiche Asset</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <ul style="padding-left: 15px; line-height: 1.6;">
+                <li>10 Studi medici predisposti</li>
+                <li>Sistemi VMC norma sanitaria</li>
+                <li>64+ Punti rete dati certificati</li>
+            </ul>
+            <ul style="padding-left: 15px; line-height: 1.6;">
+                <li>Locale blindato (Uso archivio)</li>
+                <li>Pannelli solari autorizzati</li>
+                <li>Piano terra (Accesso disabili)</li>
+            </ul>
         </div>
 
         <div class="section-title">03. Opzioni di Acquisizione</div>
         <div class="proposal-card">
-            <div class="opt">
-                <span class="tag">VENDITA:</span>
-                <strong>Cessione Asset (Prioritaria).</strong> Consolidamento patrimoniale e controllo diretto.
-            </div>
-            <div class="opt">
-                <span class="tag">LOCAZIONE:</span>
-                Opzioni <strong>Full Building</strong> o <strong>Full Service</strong> (Ready-to-use).
-            </div>
+            <div class="opt"><span class="tag">VENDITA ASSET:</span> <strong>Soluzione Prioritaria.</strong> Cessione mura per controllo totale.</div>
+            <div class="opt"><span class="tag">LOCAZIONE A:</span> <strong>Full Building.</strong> Gestione autonoma della struttura.</div>
+            <div class="opt"><span class="tag">LOCAZIONE B:</span> <strong>Full Service.</strong> Soluzione gestita "chiavi in mano".</div>
         </div>
 
-        <footer>
-            <div>
-                <strong>Best Rent Srl</strong><br>
-                <span>Gianluca · Direzione Commerciale</span>
-            </div>
-            <div style="text-align: right;">
-                <strong>Contatti:</strong><br>
-                <span>gianluca@best-rent.eu</span>
-            </div>
+        <footer style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 15px; display: flex; justify-content: space-between;">
+            <div><strong>Best Rent Srl</strong><br>Gianluca · Direzione Commerciale</div>
+            <div style="text-align:right"><strong>Contatti:</strong><br>gianluca@best-rent.eu</div>
         </footer>
     </div>
-
 </body>
 </html>
