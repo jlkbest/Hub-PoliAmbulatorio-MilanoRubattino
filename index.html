@@ -14,35 +14,18 @@
             --success: #1e8e3e;
         }
         
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; display: flex; color: var(--g-dark); line-height: 1.3; font-size: 13px; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; display: flex; flex-direction: row; color: var(--g-dark); line-height: 1.3; font-size: 13px; }
         
-        /* Sidebar con Logo GIF */
+        /* Sidebar Desktop */
         nav { 
             width: 220px; height: 100vh; background: var(--g-sidebar-bg); 
             border-right: 1px solid var(--border); position: fixed; 
-            padding: 15px; box-sizing: border-box; 
+            padding: 15px; box-sizing: border-box; z-index: 100;
         }
         
-        .nav-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            gap: 8px;
-        }
-
-        .nav-logo-img {
-            height: 14px; /* Stessa altezza del font-size della scritta */
-            width: auto;
-            display: block;
-        }
-
-        .nav-logo-text { 
-            font-weight: 700; 
-            color: var(--g-grey); 
-            font-size: 11px; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-        }
+        .nav-header { display: flex; align-items: center; margin-bottom: 25px; gap: 8px; }
+        .nav-logo-img { height: 18px; width: auto; display: block; }
+        .nav-logo-text { font-weight: 700; color: var(--g-grey); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
         
         nav a { 
             display: block; text-decoration: none; color: var(--g-grey); 
@@ -53,7 +36,7 @@
         nav a:hover, nav a.active { background: #e8f0fe; color: var(--g-blue); font-weight: 600; }
 
         /* Main Content */
-        main { margin-left: 220px; padding: 20px 40px; width: 100%; max-width: 900px; }
+        main { margin-left: 220px; padding: 20px 40px; width: 100%; max-width: 900px; box-sizing: border-box; }
         
         header { display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 20px; }
         
@@ -64,31 +47,16 @@
         
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
         .card { border: 1px solid var(--border); border-radius: 6px; padding: 12px; background: #fff; }
-        .card h3 { font-size: 13px; margin: 0 0 5px 0; color: var(--g-dark); }
-        .card p { font-size: 12px; margin: 0; color: var(--g-grey); }
+        .card h3 { font-size: 13px; margin: 0 0 5px 0; }
 
         .feature-box { background: #f8f9fa; border: 1px solid var(--border); border-radius: 6px; padding: 15px; margin-bottom: 15px; }
         .highlight-list { column-count: 2; column-gap: 20px; list-style: none; padding: 0; margin: 0; font-size: 12px; }
         .highlight-list li { margin-bottom: 5px; position: relative; padding-left: 15px; }
         .highlight-list li::before { content: "→"; color: var(--g-blue); position: absolute; left: 0; font-weight: bold; }
         
-        /* Gallery: 3 immagini alla volta */
-        #dynamic-gallery { 
-            display: flex; 
-            overflow-x: auto; 
-            gap: 10px; 
-            padding-bottom: 15px; 
-            scroll-snap-type: x mandatory; 
-        }
-        .img-card { 
-            flex: 0 0 calc(33.33% - 7px); /* Mostra 3 elementi meno il gap */
-            scroll-snap-align: start; 
-            border-radius: 6px; 
-            border: 1px solid var(--border); 
-            overflow: hidden; 
-            background: #eee; 
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
-        }
+        /* Gallery: 3 immagini */
+        #dynamic-gallery { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; scroll-snap-type: x mandatory; }
+        .img-card { flex: 0 0 calc(33.33% - 7px); scroll-snap-align: start; border-radius: 6px; border: 1px solid var(--border); overflow: hidden; background: #eee; }
         .img-card img { width: 100%; height: 180px; object-fit: cover; display: block; }
 
         .map-frame { width: 100%; height: 280px; border-radius: 8px; border: 1px solid var(--border); margin: 10px 0; }
@@ -103,12 +71,21 @@
 
         footer { text-align: center; font-size: 9px; color: var(--g-grey); margin: 40px 0; }
 
-        /* Responsive Mobile */
+        /* RESPONSIVE MOBILE */
         @media (max-width: 768px) {
-            .img-card { flex: 0 0 80%; } /* Su mobile ne mostriamo una quasi intera per scorrimento */
-            nav { width: 60px; padding: 10px 5px; }
-            .nav-logo-text, nav a { display: none; }
-            main { margin-left: 60px; padding: 15px; }
+            body { flex-direction: column; }
+            nav { 
+                width: 100%; height: auto; position: sticky; top: 0; 
+                border-right: none; border-bottom: 1px solid var(--border);
+                display: flex; flex-direction: row; overflow-x: auto;
+                padding: 10px; white-space: nowrap; gap: 5px;
+            }
+            .nav-header { margin-bottom: 0; padding-right: 15px; border-right: 1px solid var(--border); }
+            nav a { margin-bottom: 0; display: inline-block; padding: 5px 10px; }
+            main { margin-left: 0; padding: 15px; width: 100%; }
+            .grid { grid-template-columns: 1fr; }
+            .highlight-list { column-count: 1; }
+            .img-card { flex: 0 0 85%; } /* Una sola immagine visibile su mobile */
         }
     </style>
 </head>
@@ -117,12 +94,12 @@
 <nav>
     <div class="nav-header">
         <img src="BR.gif" alt="Logo" class="nav-logo-img">
-        <div class="nav-logo-text">Best Rent Srl</div>
+        <div class="nav-logo-text">Best Rent</div>
     </div>
     <a href="#cover" class="active">01. Cover</a>
     <a href="#contesto">02. Contesto</a>
     <a href="#zona">03. Perché Qui</a>
-    <a href="#immobile">04. L'Immobile</a>
+    <a href="#immobile">04. Immobile</a>
     <a href="#proposta">05. Proposta</a>
 </nav>
 
@@ -135,7 +112,6 @@
         <h1>Asset sanitario strategico a Milano</h1>
         <div class="claim">Opportunità per poliambulatorio specialistico<br>
         <small>P.zza Vigili del Fuoco 11 · ~300 mq</small></div>
-        <p style="font-size: 11px; color: var(--g-grey); margin-top: 20px;">Presented by Best Rent srl</p>
     </section>
 
     <section id="contesto">
@@ -144,43 +120,29 @@
         <div class="grid">
             <div class="card">
                 <h3>Residenziale & Privacy</h3>
-                <p>Alta densità abitativa. Area pedonale che garantisce silenzio, sicurezza e discrezione per i pazienti.</p>
+                <p>Area pedonale che garantisce silenzio e discrezione per i pazienti.</p>
             </div>
             <div class="card">
                 <h3>Valore Istituzionale</h3>
-                <p>Apertura Laboratori della Scala: rafforzamento del profilo dell'area e incremento valore dell'asset.</p>
+                <p>Vicinanza al Rettorato e ai nuovi Laboratori della Scala.</p>
             </div>
-        </div>
-        <div class="feature-box">
-            <div style="font-size: 12px; font-weight: 600; margin-bottom: 5px;">Accessibilità Eccellente</div>
-            <p style="margin: 0; font-size: 12px; color: var(--g-grey);">Metro, bus, parcheggi dedicati e facilità di carico/scarico merci/ambulanze.</p>
         </div>
     </section>
 
     <section id="zona">
         <div class="section-title">03. Perché questa zona</div>
         <p><strong>Un contesto con bassa concorrenza qualificata.</strong></p>
-        <ul class="highlight-list" style="margin-bottom: 15px;">
-            <li>Scarsa presenza poliambulatori moderni</li>
-            <li>Quartiere in rigenerazione alto profilo</li>
-            <li>Asset raro: piano terra pedonale</li>
-            <li>Operatività immediata agevolata</li>
-        </ul>
-        <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.123!2d9.243!3d45.485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDI5JzA2LjAiTiA5wrAxNCczNC44IkU!5e0!3m2!1sit!2sit!4v1600000000000" allowfullscreen="" loading="lazy"></iframe>
+        <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.114757530501!2d9.241513376566812!3d45.47757917107412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c6902262575f%3A0xc665191242371904!2sPiazza%20Vigili%20del%20Fuoco%2C%2011%2C%2020134%20Milano%20MI!5e0!3m2!1sit!2sit!4v1705000000000!5m2!1sit!2sit" allowfullscreen="" loading="lazy"></iframe>
     </section>
 
     <section id="immobile">
         <div class="section-title">04. Immobile: Sanitary-Ready</div>
-        <p><strong>Flessibile. Sicuro. Già configurato per la sanità.</strong></p>
         <div class="feature-box">
             <ul class="highlight-list">
                 <li>~300 mq (fino a 10 studi)</li>
-                <li>Sala d'attesa e reception coerenti</li>
-                <li>Layout pareti adattabile</li>
-                <li>Clima autonomo per singolo studio</li>
-                <li>VMC e 64+ punti rete dati</li>
+                <li>Impianti VMC e Clima Indipendente</li>
+                <li>64+ Punti rete dati</li>
                 <li>Locale blindato (ex sede bancaria)</li>
-                <li>Pannelli solari già autorizzati</li>
             </ul>
         </div>
         <div id="dynamic-gallery"></div>
@@ -191,27 +153,24 @@
         <table class="proposal-table">
             <tr class="main-opt">
                 <td style="width: 35%;"><span class="opt-tag">VENDITA ASSET</span></td>
-                <td><strong>Priorità Strategica.</strong> Cessione dell'intero immobile per controllo totale e massimizzazione della valorizzazione nel tempo.</td>
+                <td><strong>Priorità Strategica.</strong> Cessione dell'intero immobile.</td>
             </tr>
             <tr>
                 <td><span class="opt-tag" style="color: var(--g-grey);">LOCAZIONE</span></td>
-                <td><strong>Soluzioni alternative:</strong><br>
-                • Full Building (uso esclusivo)<br>
-                • Full Service (all-inclusive per riduzione time-to-market)</td>
+                <td>Soluzioni alternative Full Building o Full Service.</td>
             </tr>
         </table>
     </section>
 
     <div class="contact-bar">
         <div style="font-weight: 500;">Gianluca · Best Rent srl</div>
-        <a href="mailto:gianluca@best-rent.eu">gianluca@best-rent.eu</a>
+        <a href="mailto:gianluca@best-rent.eu">Email</a>
     </div>
-
-    <footer>Documento Riservato · Uso Interno Gruppo Ospedaliero · 2026</footer>
+    <footer>Riservato · 2026</footer>
 </main>
 
 <script>
-    // Caricamento Dinamico Immagini IMG/1.jpg, 2.jpg...
+    // Caricamento Dinamico Foto (1.jpg, 2.jpg...)
     const gallery = document.getElementById('dynamic-gallery');
     let idx = 1;
     function load() {
@@ -220,32 +179,19 @@
         img.onload = () => {
             let d = document.createElement('div');
             d.className = 'img-card';
-            d.innerHTML = `<img src="IMG/${idx}.jpg" alt="Gallery ${idx}">`;
+            d.innerHTML = `<img src="IMG/${idx}.jpg">`;
             gallery.appendChild(d);
-            idx++; 
-            load(); // Continua a caricare finché trova file
-        };
-        img.onerror = () => {
-            // Se fallisce il caricamento (es. 1.jpg non esiste o abbiamo finito)
-            // proviamo a caricare i file specifici se quelli numerici non ci sono
-            if (idx === 1) {
-                const manualFiles = ['foto-esterno.jpg', 'foto-interno1.jpg', 'foto-interno2.jpg'];
-                manualFiles.forEach(file => {
-                    let d = document.createElement('div');
-                    d.className = 'img-card';
-                    d.innerHTML = `<img src="IMG/${file}" alt="${file}">`;
-                    gallery.appendChild(d);
-                });
-            }
+            idx++; load();
         };
     }
     load();
 
-    // Scroll Spy per menu laterale
+    // Scroll Spy per menu
     window.onscroll = () => {
         let curr = "";
         ['cover', 'contesto', 'zona', 'immobile', 'proposta'].forEach(s => {
-            if (window.pageYOffset >= document.getElementById(s).offsetTop - 150) curr = s;
+            const el = document.getElementById(s);
+            if (el && window.pageYOffset >= el.offsetTop - 150) curr = s;
         });
         document.querySelectorAll('nav a').forEach(a => {
             a.classList.remove('active');
