@@ -2,68 +2,67 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Flyer Proposta - Piazza Vigili del Fuoco 11</title>
+    <title>Scheda Tecnica - Piazza Vigili del Fuoco 11</title>
     <style>
         :root { 
-            --g-blue: #1a73e8; 
-            --g-grey: #5f6368; 
+            --blue: #1a73e8; 
+            --grey: #5f6368; 
             --border: #dadce0; 
+            --light-bg: #f8f9fa;
         }
         body { 
             font-family: 'Segoe UI', Arial, sans-serif; 
-            margin: 0; padding: 0; 
-            background: #fff; color: #202124;
-            line-height: 1.5;
+            margin: 0; padding: 0; background: #fff; color: #202124;
+            line-height: 1.4; font-size: 13px;
         }
-        /* Ottimizzazione per A4 */
         .page {
-            width: 210mm;
-            margin: auto;
-            padding: 20mm;
+            width: 210mm; margin: auto; padding: 15mm;
             box-sizing: border-box;
         }
         header { 
             display: flex; justify-content: space-between; align-items: flex-end;
-            border-bottom: 2px solid var(--g-blue); 
-            padding-bottom: 15px; margin-bottom: 30px; 
+            border-bottom: 2px solid var(--blue); padding-bottom: 15px; margin-bottom: 25px; 
         }
-        h1 { font-size: 26px; margin: 0; color: #000; font-weight: 600; }
-        
-        .claim-print { font-size: 16px; color: var(--g-grey); margin-top: 5px; }
+        h1 { font-size: 24px; margin: 0; color: #000; }
+        .claim { font-size: 14px; color: var(--grey); margin-top: 5px; }
 
         .section-title { 
-            font-size: 12px; text-transform: uppercase; color: var(--g-blue); 
-            font-weight: 700; margin: 35px 0 15px 0; letter-spacing: 1px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 5px;
+            font-size: 11px; text-transform: uppercase; color: var(--blue); 
+            font-weight: 700; margin: 25px 0 10px 0; letter-spacing: 1px;
+            border-bottom: 1px solid var(--border); padding-bottom: 5px;
         }
 
-        .grid-print { display: flex; gap: 30px; margin-bottom: 20px; }
-        .col { flex: 1; }
-
+        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        
         .feature-list { list-style: none; padding: 0; margin: 0; }
-        .feature-list li { margin-bottom: 8px; font-size: 13px; display: flex; align-items: flex-start; }
-        .feature-list li::before { content: "•"; color: var(--g-blue); font-weight: bold; width: 15px; flex-shrink: 0; }
+        .feature-list li { margin-bottom: 6px; padding-left: 15px; position: relative; }
+        .feature-list li::before { content: "•"; color: var(--blue); position: absolute; left: 0; font-weight: bold; }
 
-        .gallery-print { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 25px 0; }
-        .gallery-print img { width: 100%; height: 140px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border); }
+        /* Specchietto Trasporti */
+        .transport-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 10px; }
+        .transport-item { background: var(--light-bg); padding: 12px; border-radius: 6px; text-align: center; border: 1px solid var(--border); }
+        .transport-item strong { display: block; color: var(--blue); font-size: 14px; }
+        .transport-item span { font-size: 11px; color: var(--grey); }
 
-        /* Box Proposta */
-        .proposal-box { background: #f8f9fa; border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-top: 10px; }
-        .proposal-item { margin-bottom: 15px; }
-        .proposal-item:last-child { margin-bottom: 0; }
-        .tag { display: inline-block; font-weight: bold; color: var(--g-blue); font-size: 13px; width: 100px; }
-        .tag-sec { color: var(--g-grey); }
+        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 20px 0; }
+        .gallery img { width: 100%; height: 120px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border); }
 
-        .footer-print { 
-            margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border);
-            display: flex; justify-content: space-between; font-size: 13px;
+        .proposal-card { 
+            background: var(--light-bg); border: 1px solid var(--border); 
+            border-radius: 8px; padding: 20px; margin-top: 15px;
+        }
+        .opt { margin-bottom: 12px; }
+        .opt:last-child { margin-bottom: 0; }
+        .tag { font-weight: bold; color: var(--blue); display: inline-block; width: 120px; }
+
+        footer { 
+            margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
         }
 
         @media print {
             .no-print { display: none; }
-            body { background: white; }
-            .page { width: 100%; padding: 10mm; }
+            .page { width: 100%; padding: 5mm; }
         }
     </style>
 </head>
@@ -72,69 +71,71 @@
     <div class="page">
         <header>
             <div>
-                <img src="BR.gif" alt="Logo" style="height: 30px; margin-bottom: 10px;">
-                <h1>Hub Medico Strategico Milano</h1>
-                <div class="claim-print">Piazza Vigili del Fuoco 11 · 300 mq complessivi</div>
+                <img src="BR.gif" alt="Logo" style="height: 25px; margin-bottom: 10px;">
+                <h1>Piazza Vigili del Fuoco 11, Milano</h1>
+                <div class="claim">Asset Sanitario Strategico · Hub ~300 mq</div>
             </div>
-            <div style="text-align: right; font-size: 10px; font-weight: bold; color: var(--g-grey);">
-                CONFIDENZIALE<br>GENNAIO 2026
+            <div style="text-align: right; font-size: 10px; color: var(--grey);">
+                GENNAIO 2026<br>STRETTAMENTE RISERVATO
             </div>
         </header>
 
-        <div class="section-title">01. Analisi Asset e Contesto</div>
-        <div class="grid-print">
-            <div class="col">
-                <p><strong>Posizionamento:</strong> Situato in zona a forte espansione (Rettorato e Laboratori della Scala), l'immobile garantisce un bacino di utenza di alto profilo e massima privacy grazie alla zona pedonale.</p>
+        <div class="section-title">01. Logistica e Collegamenti</div>
+        <div class="transport-grid">
+            <div class="transport-item">
+                <strong>M3 - Lodi TIBB</strong>
+                <span>800m (10 min a piedi)</span>
             </div>
-            <div class="col">
+            <div class="transport-item">
+                <strong>Bus 84 / 93</strong>
+                <span>150m (2 min a piedi)</span>
+            </div>
+            <div class="transport-item">
+                <strong>Passante Ferroviario</strong>
+                <span>Staz. Porta Romana</span>
+            </div>
+        </div>
+        <p style="font-size: 11px; margin-top: 10px; color: var(--grey);">
+            * L'immobile è situato in un'ampia <strong>area pedonale</strong> che permette il carico/scarico agevole per ambulanze e mezzi di soccorso, mantenendo totale silenzio per le attività cliniche.
+        </p>
+
+        <div class="section-title">02. Caratteristiche Asset (Sanitary-Ready)</div>
+        <div class="details-grid">
+            <div>
                 <ul class="feature-list">
-                    <li>Piano terra con accesso facilitato</li>
-                    <li>Zona pedonale silenziosa e sicura</li>
-                    <li>Ottima visibilità istituzionale</li>
-                    <li>Facilità di parcheggio e logistica</li>
+                    <li><strong>Capacità:</strong> Predisposto per 10 studi medici</li>
+                    <li><strong>Aria:</strong> VMC a norma sanitaria integrale</li>
+                    <li><strong>Cablaggio:</strong> 64+ punti rete dati certificati</li>
+                </ul>
+            </div>
+            <div>
+                <ul class="feature-list">
+                    <li><strong>Sicurezza:</strong> Locale blindato uso archivio/caveau</li>
+                    <li><strong>Energia:</strong> Pannelli solari autorizzati a tetto</li>
+                    <li><strong>Accessibilità:</strong> Piano terra (Zero barriere)</li>
                 </ul>
             </div>
         </div>
 
-        <div class="section-title">02. Caratteristiche Tecniche (Sanitary-Ready)</div>
-        <div class="grid-print">
-            <div class="col">
-                <ul class="feature-list">
-                    <li><strong>Layout:</strong> Fino a 10 studi medici specialistici</li>
-                    <li><strong>Aria:</strong> Sistemi VMC a norma sanitaria</li>
-                    <li><strong>Clima:</strong> Raffrescamento/Riscaldamento a zone</li>
-                    <li><strong>Dati:</strong> 64+ punti rete (cablaggio integrale)</li>
-                </ul>
-            </div>
-            <div class="col">
-                <ul class="feature-list">
-                    <li><strong>Sicurezza:</strong> Locale blindato certificato</li>
-                    <li><strong>Energia:</strong> Pannelli solari autorizzati</li>
-                    <li><strong>Stato:</strong> Ottimo, pronto all'avviamento</li>
-                    <li><strong>Superficie:</strong> ~300 mq su unico livello</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="gallery-print">
+        <div class="gallery">
             <img src="IMG/1.jpg" alt="Foto 1">
             <img src="IMG/2.jpg" alt="Foto 2">
             <img src="IMG/3.jpg" alt="Foto 3">
         </div>
 
-        <div class="section-title">03. Modelli di Acquisizione</div>
-        <div class="proposal-box">
-            <div class="proposal-item">
+        <div class="section-title">03. Opzioni di Acquisizione</div>
+        <div class="proposal-card">
+            <div class="opt">
                 <span class="tag">VENDITA:</span>
-                <strong>Cessione Asset (Prioritaria).</strong> Soluzione ideale per il consolidamento del patrimonio immobiliare sanitario e il controllo totale della struttura.
+                <strong>Cessione Asset (Prioritaria).</strong> Soluzione per controllo diretto e consolidamento patrimoniale duraturo.
             </div>
-            <div class="proposal-item">
-                <span class="tag tag-sec">LOCAZIONE:</span>
-                Disponibile opzione <strong>Full Building</strong> o <strong>Full Service</strong> per una flessibilità operativa massima e riduzione dei tempi di startup.
+            <div class="opt">
+                <span class="tag">LOCAZIONE:</span>
+                Disponibilità per <strong>Locazione Full Building</strong> o <strong>Full Service</strong> con startup immediata.
             </div>
         </div>
 
-        <div class="footer-print">
+        <footer>
             <div>
                 <strong>Best Rent Srl</strong><br>
                 <span>Gianluca · Direzione Commerciale</span>
@@ -143,12 +144,8 @@
                 <strong>Contatti:</strong><br>
                 <span>gianluca@best-rent.eu</span>
             </div>
-        </div>
+        </footer>
     </div>
 
-    <script>
-        // Opzionale: decommenta la riga sotto per avviare la stampa all'apertura
-        // window.onload = () => { setTimeout(() => { window.print(); }, 500); };
-    </script>
 </body>
 </html>
