@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta Strategica - Piazza Vigili del Fuoco 11</title>
+    <style>
+        :root { 
+            --g-blue: #1a73e8; 
+            --g-sidebar-bg: #f1f3f4; 
+            --g-grey: #5f6368; 
+            --g-dark: #202124; 
+            --border: #dadce0; 
+            --success: #1e8e3e;
+        }
+        
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; display: flex; flex-direction: row; color: var(--g-dark); line-height: 1.3; font-size: 13px; }
+        
+        /* Sidebar Desktop */
+        nav { 
+            width: 220px; height: 100vh; background: var(--g-sidebar-bg); 
+            border-right: 1px solid var(--border); position: fixed; 
+            padding: 15px; box-sizing: border-box; z-index: 100;
+        }
+        
+        .nav-header { display: flex; align-items: center; margin-bottom: 25px; gap: 8px; }
+        .nav-logo-img { height: 18px; width: auto; display: block; }
+        .nav-logo-text { font-weight: 700; color: var(--g-grey); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+        
+        nav a { 
+            display: block; text-decoration: none; color: var(--g-grey); 
+            padding: 7px 10px; border-radius: 4px; margin-bottom: 4px; 
+            font-size: 12px; transition: 0.2s;
+        }
+        
+        nav a:hover, nav a.active { background: #e8f0fe; color: var(--g-blue); font-weight: 600; }
+
+        /* Main Content */
+        main { margin-left: 220px; padding: 20px 40px; width: 100%; max-width: 900px; box-sizing: border-box; }
+        
+        header { display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 20px; }
+        
+        h1 { font-size: 26px; font-weight: 400; margin: 0; letter-spacing: -0.5px; color: var(--g-dark); }
+        .claim { font-size: 16px; color: var(--g-grey); margin-top: 5px; }
+        
+        .section-title { font-size: 10px; text-transform: uppercase; color: var(--g-blue); font-weight: 700; margin: 30px 0 10px 0; border-bottom: 1px solid var(--border); padding-bottom: 3px; }
+        
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+        .card { border: 1px solid var(--border); border-radius: 6px; padding: 12px; background: #fff; }
+        .card h3 { font-size: 13px; margin: 0 0 5px 0; }
+
+        .feature-box { background: #f8f9fa; border: 1px solid var(--border); border-radius: 6px; padding: 15px; margin-bottom: 15px; }
+        .highlight-list { column-count: 2; column-gap: 20px; list-style: none; padding: 0; margin: 0; font-size: 12px; }
+        .highlight-list li { margin-bottom: 5px; position: relative; padding-left: 15px; }
+        .highlight-list li::before { content: "→"; color: var(--g-blue); position: absolute; left: 0; font-weight: bold; }
+        
+        /* Gallery: 3 immagini */
+        #dynamic-gallery { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; scroll-snap-type: x mandatory; }
+        .img-card { flex: 0 0 calc(33.33% - 7px); scroll-snap-align: start; border-radius: 6px; border: 1px solid var(--border); overflow: hidden; background: #eee; }
+        .img-card img { width: 100%; height: 180px; object-fit: cover; display: block; }
+
+        .map-frame { width: 100%; height: 280px; border-radius: 8px; border: 1px solid var(--border); margin: 10px 0; }
+        
+        .proposal-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .proposal-table tr.main-opt { background: #e8f0fe; }
+        .proposal-table td { padding: 15px; border-bottom: 1px solid var(--border); }
+        .opt-tag { font-weight: 700; color: var(--g-blue); font-size: 14px; }
+
+        .contact-bar { margin-top: 40px; padding: 15px 25px; background: var(--g-dark); color: white; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .contact-bar a { color: #8ab4f8; text-decoration: none; font-weight: 600; }
+
+        footer { text-align: center; font-size: 9px; color: var(--g-grey); margin: 40px 0; }
+
+        /* RESPONSIVE MOBILE */
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            nav { 
+                width: 100%; height: auto; position: sticky; top: 0; 
+                border-right: none; border-bottom: 1px solid var(--border);
+                display: flex; flex-direction: row; overflow-x: auto;
+                padding: 10px; white-space: nowrap; gap: 5px;
+            }
+            .nav-header { margin-bottom: 0; padding-right: 15px; border-right: 1px solid var(--border); }
+            nav a { margin-bottom: 0; display: inline-block; padding: 5px 10px; }
+            main { margin-left: 0; padding: 15px; width: 100%; }
+            .grid { grid-template-columns: 1fr; }
+            .highlight-list { column-count: 1; }
+            .img-card { flex: 0 0 85%; } /* Una sola immagine visibile su mobile */
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-header">
+        <img src="BR.gif" alt="Logo" class="nav-logo-img">
+        <div class="nav-logo-text">Best Rent</div>
+    </div>
+    <a href="#cover" class="active">01. Cover</a>
+    <a href="#contesto">02. Contesto</a>
+    <a href="#zona">03. Perché Qui</a>
+    <a href="#immobile">04. Immobile</a>
+    <a href="#proposta">05. Proposta</a>
+</nav>
+
+<main>
+    <section id="cover">
+        <header>
+            <div style="font-size: 9px; font-weight: bold; color: var(--g-grey);">MEMO DECISIONALE AD</div>
+            <div style="color: var(--success); font-size: 9px; font-weight: bold;">ASSET SANITARIO 2026</div>
+        </header>
+        <h1>Asset sanitario strategico a Milano</h1>
+        <div class="claim">Opportunità per poliambulatorio specialistico<br>
+        <small>P.zza Vigili del Fuoco 11 · ~300 mq</small></div>
+    </section>
+
+    <section id="contesto">
+        <div class="section-title">02. Contesto Strategico</div>
+        <p><strong>Domanda sanitaria stabile. Area in forte qualificazione.</strong></p>
+        <div class="grid">
+            <div class="card">
+                <h3>Residenziale & Privacy</h3>
+                <p>Area pedonale che garantisce silenzio e discrezione per i pazienti.</p>
+            </div>
+            <div class="card">
+                <h3>Valore Istituzionale</h3>
+                <p>Vicinanza al Rettorato e ai nuovi Laboratori della Scala.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="zona">
+        <div class="section-title">03. Perché questa zona</div>
+        <p><strong>Un contesto con bassa concorrenza qualificata.</strong></p>
+        <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.114757530501!2d9.241513376566812!3d45.47757917107412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c6902262575f%3A0xc665191242371904!2sPiazza%20Vigili%20del%20Fuoco%2C%2011%2C%2020134%20Milano%20MI!5e0!3m2!1sit!2sit!4v1705000000000!5m2!1sit!2sit" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <section id="immobile">
+        <div class="section-title">04. Immobile: Sanitary-Ready</div>
+        <div class="feature-box">
+            <ul class="highlight-list">
+                <li>~300 mq (fino a 10 studi)</li>
+                <li>Impianti VMC e Clima Indipendente</li>
+                <li>64+ Punti rete dati</li>
+                <li>Locale blindato (ex sede bancaria)</li>
+            </ul>
+        </div>
+        <div id="dynamic-gallery"></div>
+    </section>
+
+    <section id="proposta">
+        <div class="section-title">05. Proposta Economica</div>
+        <table class="proposal-table">
+            <tr class="main-opt">
+                <td style="width: 35%;"><span class="opt-tag">VENDITA ASSET</span></td>
+                <td><strong>Priorità Strategica.</strong> Cessione dell'intero immobile.</td>
+            </tr>
+            <tr>
+                <td><span class="opt-tag" style="color: var(--g-grey);">LOCAZIONE</span></td>
+                <td>Soluzioni alternative Full Building o Full Service.</td>
+            </tr>
+        </table>
+    </section>
+
+    <div class="contact-bar">
+        <div style="font-weight: 500;">
+            Gianluca · Best Rent srl<br>
+            <a href="mailto:gianluca@best-rent.eu" style="font-size: 11px; color: #8ab4f8;">gianluca@best-rent.eu</a>
+        </div>
+        <a href="stampa.html" target="_blank" style="background: var(--g-blue); color: white; padding: 8px 15px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 12px;">Genera PDF / Stampa</a>
+    </div>
+    
+    <footer>Riservato · 2026</footer>
+</main>
+
+<script>
+    // Caricamento Dinamico Foto (1.jpg, 2.jpg...)
+    const gallery = document.getElementById('dynamic-gallery');
+    let idx = 1;
+    function load() {
+        let img = new Image();
+        img.src = `IMG/${idx}.jpg`;
+        img.onload = () => {
+            let d = document.createElement('div');
+            d.className = 'img-card';
+            d.innerHTML = `<img src="IMG/${idx}.jpg">`;
+            gallery.appendChild(d);
+            idx++; load();
+        };
+    }
+    load();
+
+    // Scroll Spy per menu
+    window.onscroll = () => {
+        let curr = "";
+        ['cover', 'contesto', 'zona', 'immobile', 'proposta'].forEach(s => {
+            const el = document.getElementById(s);
+            if (el && window.pageYOffset >= el.offsetTop - 150) curr = s;
+        });
+        document.querySelectorAll('nav a').forEach(a => {
+            a.classList.remove('active');
+            if (a.getAttribute('href') === `#${curr}`) a.classList.add('active');
+        });
+    };
+</script>
+</body>
+</html>
+
