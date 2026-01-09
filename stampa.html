@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Flyer Proposta - Piazza Vigili del Fuoco 11</title>
+    <style>
+        :root { 
+            --g-blue: #1a73e8; 
+            --g-grey: #5f6368; 
+            --border: #dadce0; 
+        }
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; padding: 0; 
+            background: #fff; color: #202124;
+        }
+        /* Formato A4 */
+        .page {
+            width: 210mm;
+            margin: auto;
+            padding: 15mm;
+            box-sizing: border-box;
+        }
+        header { 
+            display: flex; justify-content: space-between; 
+            border-bottom: 2px solid var(--g-blue); 
+            padding-bottom: 10px; margin-bottom: 20px; 
+        }
+        h1 { font-size: 28px; margin: 0; color: #000; }
+        .section-title { 
+            font-size: 12px; text-transform: uppercase; color: var(--g-blue); 
+            font-weight: 700; margin: 25px 0 10px 0; border-bottom: 1px solid var(--border);
+        }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card { border: 1px solid var(--border); border-radius: 6px; padding: 15px; }
+        
+        /* Gallery Fissa per Stampa (3 foto) */
+        .gallery-print { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 15px; }
+        .gallery-print img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border); }
+
+        .footer-print { 
+            margin-top: 40px; padding: 20px; background: #f8f9fa; 
+            border-radius: 8px; border: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        @media print {
+            .no-print { display: none; }
+            body { -webkit-print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+        <header>
+            <div>
+                <img src="BR.gif" style="height: 20px; vertical-align: middle;">
+                <span style="font-weight: bold; margin-left: 10px;">Best Rent Srl</span>
+            </div>
+            <div style="font-size: 10px; text-align: right; color: var(--g-grey);">
+                OFFERTA RISERVATA<br>GENNAIO 2026
+            </div>
+        </header>
+
+        <h1>Asset Sanitario Strategico</h1>
+        <p style="font-size: 18px; color: var(--g-grey); margin-top: 5px;">Piazza Vigili del Fuoco 11, Milano</p>
+
+        <div class="section-title">01. Analisi Strategica</div>
+        <div class="grid">
+            <div class="card">
+                <h3 style="margin-top:0">Posizionamento</h3>
+                <p style="font-size: 13px;">Area in forte espansione adiacente al Rettorato e ai nuovi Laboratori della Scala. Alta visibilità e prestigio istituzionale.</p>
+            </div>
+            <div class="card">
+                <h3 style="margin-top:0">Target</h3>
+                <p style="font-size: 13px;">Bacino d'utenza residenziale ad alta densità con domanda insoddisfatta di servizi sanitari specialistici.</p>
+            </div>
+        </div>
+
+        <div class="section-title">02. Caratteristiche Immobile</div>
+        <div style="background: #f1f3f4; padding: 15px; border-radius: 6px; font-size: 13px;">
+            <strong>Ready-to-start:</strong> ~300 mq complessivi, predisposizione per 10 studi medici, reception, sistemi VMC indipendenti, locale blindato ex-caveau e cablaggio dati integrale (64+ punti).
+        </div>
+
+        <div class="gallery-print">
+            <img src="IMG/1.jpg" alt="Foto 1">
+            <img src="IMG/2.jpg" alt="Foto 2">
+            <img src="IMG/3.jpg" alt="Foto 3">
+        </div>
+
+        <div class="section-title">03. Proposta Economica</div>
+        <div style="border-left: 4px solid var(--g-blue); padding-left: 15px;">
+            <p><strong>Vendita Asset (Prioritaria):</strong> Cessione dell'intero immobile per consolidamento patrimoniale.</p>
+            <p style="color: var(--g-grey); font-size: 12px;">Disponibili in subordine opzioni di Locazione Full Building o Full Service.</p>
+        </div>
+
+        <div class="footer-print">
+            <div>
+                <strong style="font-size: 16px;">Gianluca</strong><br>
+                <span>Best Rent Srl</span>
+            </div>
+            <div style="text-align: right;">
+                <strong>Contatti:</strong><br>
+                <span>gianluca@best-rent.eu</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Avvia la stampa automaticamente dopo mezzo secondo per caricare le immagini
+        window.onload = function() {
+            setTimeout(function() {
+                window.print();
+            }, 500);
+        };
+    </script>
+</body>
+</html>
