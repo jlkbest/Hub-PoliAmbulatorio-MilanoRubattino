@@ -15,31 +15,35 @@
             margin: 0; padding: 0; background: #fff; color: #202124;
             line-height: 1.4; font-size: 13px;
         }
+        
+        /* Layout A4 */
         .page {
             width: 210mm; margin: auto; padding: 15mm;
             box-sizing: border-box; position: relative;
         }
 
-        /* Pulsante Stampa */
-        .print-btn {
+        /* Pulsante Flottante Stampa/PDF */
+        .no-print-btn {
             position: fixed;
             top: 20px;
-            right: 20px;
+            right: 40px;
             background: var(--blue);
             color: white;
             border: none;
-            padding: 10px 15px;
+            padding: 12px 20px;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             font-weight: bold;
-            z-index: 999;
-            transition: transform 0.2s;
+            z-index: 1000;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            font-size: 12px;
         }
-        .print-btn:hover { transform: scale(1.05); }
+        .no-print-btn:hover { background: #1557b0; transform: translateY(-2px); }
 
         header { 
             display: flex; justify-content: space-between; align-items: flex-end;
@@ -60,7 +64,6 @@
         .feature-list li { margin-bottom: 6px; padding-left: 15px; position: relative; }
         .feature-list li::before { content: "•"; color: var(--blue); position: absolute; left: 0; font-weight: bold; }
 
-        /* Specchietto Trasporti Aggiornato */
         .transport-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 10px; }
         .transport-item { background: var(--light-bg); padding: 12px; border-radius: 6px; text-align: center; border: 1px solid var(--border); }
         .transport-item strong { display: block; color: var(--blue); font-size: 13px; }
@@ -82,21 +85,23 @@
             display: flex; justify-content: space-between; align-items: center;
         }
 
+        /* Gestione Stampa */
         @media print {
-            .print-btn { display: none; } /* Nasconde il tasto durante la stampa */
-            .page { width: 100%; padding: 5mm; }
+            .no-print-btn { display: none !important; }
+            .page { width: 100%; padding: 5mm; margin: 0; }
             body { background: white; }
+            @page { size: A4; margin: 10mm; }
         }
     </style>
 </head>
 <body>
 
-    <button class="print-btn" onclick="window.print()">
-        <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+    <button class="no-print-btn" onclick="window.print()">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
             <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
             <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
         </svg>
-        STAMPA SCHEDA
+        Stampa / Salva PDF
     </button>
 
     <div class="page">
@@ -119,7 +124,7 @@
             </div>
             <div class="transport-item">
                 <strong>Stazione FS Lambrate</strong>
-                <span>Treni Regionali / Alta Velocità</span>
+                <span>Treni Regionali / FS</span>
             </div>
             <div class="transport-item">
                 <strong>Bus 84 / 93</strong>
@@ -127,7 +132,7 @@
             </div>
         </div>
         <p style="font-size: 11px; margin-top: 10px; color: var(--grey);">
-            * L'immobile è situato in un'ampia <strong>area pedonale</strong> che garantisce privacy per i pazienti e facilita le operazioni di soccorso/sanitarie.
+            * L'immobile è situato in un'ampia <strong>area pedonale</strong> che garantisce privacy assoluta per i pazienti e facilita le operazioni di soccorso/sanitarie.
         </p>
 
         <div class="section-title">02. Caratteristiche Asset (Sanitary-Ready)</div>
@@ -158,11 +163,11 @@
         <div class="proposal-card">
             <div class="opt">
                 <span class="tag">VENDITA:</span>
-                <strong>Cessione Asset.</strong> Soluzione per controllo diretto e consolidamento patrimoniale.
+                <strong>Cessione Asset (Prioritaria).</strong> Consolidamento patrimoniale e controllo diretto.
             </div>
             <div class="opt">
                 <span class="tag">LOCAZIONE:</span>
-                Opzioni <strong>Full Building</strong> o <strong>Full Service</strong> con startup immediata.
+                Opzioni <strong>Full Building</strong> o <strong>Full Service</strong> (Ready-to-use).
             </div>
         </div>
 
