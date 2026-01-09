@@ -13,40 +13,57 @@
             font-family: 'Segoe UI', Arial, sans-serif; 
             margin: 0; padding: 0; 
             background: #fff; color: #202124;
+            line-height: 1.5;
         }
-        /* Formato A4 */
+        /* Ottimizzazione per A4 */
         .page {
             width: 210mm;
             margin: auto;
-            padding: 15mm;
+            padding: 20mm;
             box-sizing: border-box;
         }
         header { 
-            display: flex; justify-content: space-between; 
+            display: flex; justify-content: space-between; align-items: flex-end;
             border-bottom: 2px solid var(--g-blue); 
-            padding-bottom: 10px; margin-bottom: 20px; 
+            padding-bottom: 15px; margin-bottom: 30px; 
         }
-        h1 { font-size: 28px; margin: 0; color: #000; }
+        h1 { font-size: 26px; margin: 0; color: #000; font-weight: 600; }
+        
+        .claim-print { font-size: 16px; color: var(--g-grey); margin-top: 5px; }
+
         .section-title { 
             font-size: 12px; text-transform: uppercase; color: var(--g-blue); 
-            font-weight: 700; margin: 25px 0 10px 0; border-bottom: 1px solid var(--border);
+            font-weight: 700; margin: 35px 0 15px 0; letter-spacing: 1px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 5px;
         }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .card { border: 1px solid var(--border); border-radius: 6px; padding: 15px; }
-        
-        /* Gallery Fissa per Stampa (3 foto) */
-        .gallery-print { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 15px; }
-        .gallery-print img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border); }
+
+        .grid-print { display: flex; gap: 30px; margin-bottom: 20px; }
+        .col { flex: 1; }
+
+        .feature-list { list-style: none; padding: 0; margin: 0; }
+        .feature-list li { margin-bottom: 8px; font-size: 13px; display: flex; align-items: flex-start; }
+        .feature-list li::before { content: "•"; color: var(--g-blue); font-weight: bold; width: 15px; flex-shrink: 0; }
+
+        .gallery-print { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 25px 0; }
+        .gallery-print img { width: 100%; height: 140px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border); }
+
+        /* Box Proposta */
+        .proposal-box { background: #f8f9fa; border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-top: 10px; }
+        .proposal-item { margin-bottom: 15px; }
+        .proposal-item:last-child { margin-bottom: 0; }
+        .tag { display: inline-block; font-weight: bold; color: var(--g-blue); font-size: 13px; width: 100px; }
+        .tag-sec { color: var(--g-grey); }
 
         .footer-print { 
-            margin-top: 40px; padding: 20px; background: #f8f9fa; 
-            border-radius: 8px; border: 1px solid var(--border);
-            display: flex; justify-content: space-between; align-items: center;
+            margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between; font-size: 13px;
         }
 
         @media print {
             .no-print { display: none; }
-            body { -webkit-print-color-adjust: exact; }
+            body { background: white; }
+            .page { width: 100%; padding: 10mm; }
         }
     </style>
 </head>
@@ -55,32 +72,48 @@
     <div class="page">
         <header>
             <div>
-                <img src="BR.gif" style="height: 20px; vertical-align: middle;">
-                <span style="font-weight: bold; margin-left: 10px;">Best Rent Srl</span>
+                <img src="BR.gif" alt="Logo" style="height: 30px; margin-bottom: 10px;">
+                <h1>Hub Medico Strategico Milano</h1>
+                <div class="claim-print">Piazza Vigili del Fuoco 11 · 300 mq complessivi</div>
             </div>
-            <div style="font-size: 10px; text-align: right; color: var(--g-grey);">
-                OFFERTA RISERVATA<br>GENNAIO 2026
+            <div style="text-align: right; font-size: 10px; font-weight: bold; color: var(--g-grey);">
+                CONFIDENZIALE<br>GENNAIO 2026
             </div>
         </header>
 
-        <h1>Asset Sanitario Strategico</h1>
-        <p style="font-size: 18px; color: var(--g-grey); margin-top: 5px;">Piazza Vigili del Fuoco 11, Milano</p>
-
-        <div class="section-title">01. Analisi Strategica</div>
-        <div class="grid">
-            <div class="card">
-                <h3 style="margin-top:0">Posizionamento</h3>
-                <p style="font-size: 13px;">Area in forte espansione adiacente al Rettorato e ai nuovi Laboratori della Scala. Alta visibilità e prestigio istituzionale.</p>
+        <div class="section-title">01. Analisi Asset e Contesto</div>
+        <div class="grid-print">
+            <div class="col">
+                <p><strong>Posizionamento:</strong> Situato in zona a forte espansione (Rettorato e Laboratori della Scala), l'immobile garantisce un bacino di utenza di alto profilo e massima privacy grazie alla zona pedonale.</p>
             </div>
-            <div class="card">
-                <h3 style="margin-top:0">Target</h3>
-                <p style="font-size: 13px;">Bacino d'utenza residenziale ad alta densità con domanda insoddisfatta di servizi sanitari specialistici.</p>
+            <div class="col">
+                <ul class="feature-list">
+                    <li>Piano terra con accesso facilitato</li>
+                    <li>Zona pedonale silenziosa e sicura</li>
+                    <li>Ottima visibilità istituzionale</li>
+                    <li>Facilità di parcheggio e logistica</li>
+                </ul>
             </div>
         </div>
 
-        <div class="section-title">02. Caratteristiche Immobile</div>
-        <div style="background: #f1f3f4; padding: 15px; border-radius: 6px; font-size: 13px;">
-            <strong>Ready-to-start:</strong> ~300 mq complessivi, predisposizione per 10 studi medici, reception, sistemi VMC indipendenti, locale blindato ex-caveau e cablaggio dati integrale (64+ punti).
+        <div class="section-title">02. Caratteristiche Tecniche (Sanitary-Ready)</div>
+        <div class="grid-print">
+            <div class="col">
+                <ul class="feature-list">
+                    <li><strong>Layout:</strong> Fino a 10 studi medici specialistici</li>
+                    <li><strong>Aria:</strong> Sistemi VMC a norma sanitaria</li>
+                    <li><strong>Clima:</strong> Raffrescamento/Riscaldamento a zone</li>
+                    <li><strong>Dati:</strong> 64+ punti rete (cablaggio integrale)</li>
+                </ul>
+            </div>
+            <div class="col">
+                <ul class="feature-list">
+                    <li><strong>Sicurezza:</strong> Locale blindato certificato</li>
+                    <li><strong>Energia:</strong> Pannelli solari autorizzati</li>
+                    <li><strong>Stato:</strong> Ottimo, pronto all'avviamento</li>
+                    <li><strong>Superficie:</strong> ~300 mq su unico livello</li>
+                </ul>
+            </div>
         </div>
 
         <div class="gallery-print">
@@ -89,16 +122,22 @@
             <img src="IMG/3.jpg" alt="Foto 3">
         </div>
 
-        <div class="section-title">03. Proposta Economica</div>
-        <div style="border-left: 4px solid var(--g-blue); padding-left: 15px;">
-            <p><strong>Vendita Asset (Prioritaria):</strong> Cessione dell'intero immobile per consolidamento patrimoniale.</p>
-            <p style="color: var(--g-grey); font-size: 12px;">Disponibili in subordine opzioni di Locazione Full Building o Full Service.</p>
+        <div class="section-title">03. Modelli di Acquisizione</div>
+        <div class="proposal-box">
+            <div class="proposal-item">
+                <span class="tag">VENDITA:</span>
+                <strong>Cessione Asset (Prioritaria).</strong> Soluzione ideale per il consolidamento del patrimonio immobiliare sanitario e il controllo totale della struttura.
+            </div>
+            <div class="proposal-item">
+                <span class="tag tag-sec">LOCAZIONE:</span>
+                Disponibile opzione <strong>Full Building</strong> o <strong>Full Service</strong> per una flessibilità operativa massima e riduzione dei tempi di startup.
+            </div>
         </div>
 
         <div class="footer-print">
             <div>
-                <strong style="font-size: 16px;">Gianluca</strong><br>
-                <span>Best Rent Srl</span>
+                <strong>Best Rent Srl</strong><br>
+                <span>Gianluca · Direzione Commerciale</span>
             </div>
             <div style="text-align: right;">
                 <strong>Contatti:</strong><br>
@@ -108,12 +147,8 @@
     </div>
 
     <script>
-        // Avvia la stampa automaticamente dopo mezzo secondo per caricare le immagini
-        window.onload = function() {
-            setTimeout(function() {
-                window.print();
-            }, 500);
-        };
+        // Opzionale: decommenta la riga sotto per avviare la stampa all'apertura
+        // window.onload = () => { setTimeout(() => { window.print(); }, 500); };
     </script>
 </body>
 </html>
