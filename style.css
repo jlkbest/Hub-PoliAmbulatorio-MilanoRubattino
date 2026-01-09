@@ -50,7 +50,7 @@ h1 { font-size: 32px; font-weight: 300; margin: 0; color: #fff; letter-spacing: 
 .sub-claim { color: var(--accent-blue); font-size: 14px; font-weight: 500; }
 
 .section-title { 
-    font-size: 11px; text-transform: uppercase; color: var(--accent-blue); 
+    font-size: 22px; text-transform: uppercase; color: var(--accent-blue); 
     font-weight: 700; margin: 50px 0 20px 0; letter-spacing: 2px;
     display: flex; align-items: center;
 }
@@ -111,4 +111,5 @@ footer { text-align: center; font-size: 10px; color: var(--text-dim); margin: 60
     .grid { grid-template-columns: 1fr; }
     .highlight-list { column-count: 1; }
     .img-card { flex: 0 0 85%; }
+
 }
